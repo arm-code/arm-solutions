@@ -35,7 +35,7 @@ export default function BuildingPage() {
                     <div className="flex items-center gap-3 rounded-xl border border-border bg-card/40 px-5 py-2.5 backdrop-blur-lg shadow-sm">
                         <div className="h-2 w-2 rounded-full bg-amber-500 animate-pulse" />
                         <code className="text-xs font-bold uppercase tracking-widest text-muted-foreground/80 font-mono">
-                            Entorno de Desarrollo // arm-solutions v0.1.0
+                            First release // arm-solutions v0.1.0
                         </code>
                     </div>
                 </div>

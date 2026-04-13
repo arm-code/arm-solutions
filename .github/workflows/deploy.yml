@@ -9,26 +9,26 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: 🚚 Obtener código
+      - name: Obtener código
         uses: actions/checkout@v4
 
-      - name: 🏗 Instalar pnpm
+      - name: Instalar pnpm
         uses: pnpm/action-setup@v3
         with:
           version: 9
 
-      - name: ⚙️ Instalar Node.js
+      - name: Instalar Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: 'pnpm'
 
-      - name: 📦 Instalar dependencias y compilar
+      - name: Instalar dependencias y compilar
         run: |
           pnpm install
           pnpm build
 
-      - name: 🚀 Subir archivos a Neubox via FTP
+      - name: Subir archivos a Neubox via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.SERVER_HOST }}
