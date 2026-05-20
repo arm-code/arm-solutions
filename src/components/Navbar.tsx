@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button"
+import { ContactDialog } from "./ContactDialog"
 
 export function Navbar() {
   return (
@@ -18,7 +19,9 @@ export function Navbar() {
           <a href="#about" className="transition-colors hover:text-foreground/80 text-muted-foreground">Nosotros</a>
         </nav>
         <div className="flex items-center gap-4">
-          <Button variant="outline" size="sm" className="hidden sm:flex">Contacto</Button>
+          <ContactDialog>
+            <Button variant="outline" size="sm">Contacto</Button>
+          </ContactDialog>
         </div>
       </div>
     </header>

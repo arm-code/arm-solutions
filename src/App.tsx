@@ -1,8 +1,13 @@
 import HomePage from "./pages/Home"
-
+import { Toaster } from "@/components/ui/sonner"
 
 function App() {
-  return <HomePage />
+  return (
+    <>
+      <HomePage />
+      <Toaster />
+    </>
+  )
 }
 
 export default App
