@@ -4,6 +4,7 @@ import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query"
 import { api } from "@/lib/api"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
+import { PageHeader } from "@/components/admin/page-header"
 import { Loader2, Plus, Building2, ExternalLink } from "lucide-react"
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage, FormDescription } from "@/components/ui/form"
@@ -78,14 +79,12 @@ export default function DashboardPage() {
   }
 
   return (
-    <div className="space-y-6 max-w-6xl mx-auto py-6">
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-        <div>
-          <h1 className="text-3xl font-bold tracking-tight">Negocios (Tenants)</h1>
-          <p className="text-muted-foreground mt-1">
-            Gestiona los clientes y espacios de trabajo del sistema.
-          </p>
-        </div>
+    <div className="space-y-6 max-w-6xl mx-auto py-2">
+      <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
+        <PageHeader 
+          title="Negocios (Tenants)" 
+          description="Gestiona los clientes y espacios de trabajo del sistema." 
+        />
         <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
           <DialogTrigger asChild>
             <Button>
