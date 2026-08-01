@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button"
 import { ContactDialog } from "./ContactDialog"
+import Link from "next/link"
 
 export function Navbar() {
   return (
@@ -22,6 +23,9 @@ export function Navbar() {
           <ContactDialog>
             <Button variant="outline" size="sm">Contacto</Button>
           </ContactDialog>
+          <Link href="/dashboard">
+            <Button size="sm">Acceso</Button>
+          </Link>
         </div>
       </div>
     </header>
