@@ -25,7 +25,7 @@ export function AdminHeader() {
         <div className="flex h-8 w-8 items-center justify-center rounded-md bg-primary text-primary-foreground font-bold">
           A
         </div>
-        <span className="text-lg tracking-tight">ARM Core</span>
+        <span className="text-lg tracking-tight">ARM</span>
       </div>
 
       <div className="flex items-center gap-1">
