@@ -3,6 +3,7 @@ import { supabase } from './supabase';
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:3500/api';
 
+// ─── Instancia principal (JSON) ────────────────────────────────────────────────
 export const api = axios.create({
   baseURL: API_BASE_URL,
   headers: {
@@ -40,4 +41,26 @@ api.interceptors.response.use(
     }
     return Promise.reject(error);
   }
+);
+
+// ─── Instancia raw para descargas binarias (blob) ──────────────────────────────
+// No incluye interceptor de respuesta JSON — necesaria para POST /download/audio
+export const apiRaw = axios.create({
+  baseURL: API_BASE_URL,
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  // Sin timeout — la conversión de audio puede tardar hasta 5 minutos
+  timeout: 0,
+});
+
+apiRaw.interceptors.request.use(
+  async (config) => {
+    const { data: { session } } = await supabase.auth.getSession();
+    if (session?.access_token) {
+      config.headers.Authorization = `Bearer ${session.access_token}`;
+    }
+    return config;
+  },
+  (error) => Promise.reject(error)
 );

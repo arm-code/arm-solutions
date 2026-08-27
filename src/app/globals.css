@@ -130,3 +130,15 @@
     @apply bg-background text-foreground font-sans antialiased;
   }
 }
+
+@keyframes indeterminate {
+  0% {
+    transform: translateX(-100%) scaleX(0.5);
+  }
+  50% {
+    transform: translateX(50%) scaleX(0.4);
+  }
+  100% {
+    transform: translateX(200%) scaleX(0.5);
+  }
+}
